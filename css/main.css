@@ -1,0 +1,96 @@
+
+body{
+    width: auto;
+    height: auto;
+}
+header{
+
+    background-color: rgb(245, 185, 33);
+    height: 100px;
+}
+
+ header h2{
+padding-top: 30px;
+margin-left: 20px;
+ }
+
+ .login {
+     padding-top: 100px;
+     padding-bottom: auto;
+ }
+
+ /*AQUI É FEITO O ALINHAMENTO DO INPUT*/
+ .login input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    border-radius: 3px;
+    
+   
+ }
+ /*AQUI É FEITO O ALINHAMENTO DO BOTÃO*/
+ .login button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: darkslategray;
+    color: floralwhite;
+    width: 350px;
+    }
+
+    section a{
+
+        display: inline-block;
+    margin-left: 50;
+    margin-right: auto;
+   
+    background-color: rgb(17, 17, 17);
+    color: white;
+    text-size-adjust: auto;
+    font-size: small;
+    text-decoration: none;
+  
+    }
+
+    .telacenarios {
+  
+        padding-top: 10px;
+    }
+
+    .telacenarios div{
+       height: 35px;
+       padding-top: 10px;
+       border-radius: 3rem;
+    }
+
+    .telacenarios form,div{
+       display: block;
+       padding-left: 50px;
+       padding-top: 10px;
+
+       
+     }
+   .telacenarios input{
+
+    background-color: rgb(15, 75, 134);
+    color: rgb(248, 240, 240);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+   }
+  
+
+   .caixaFormulario{
+
+    width: 50%;
+    display: grid;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+
+      }
+
+      .caixaFormulario input{
+
+        width: 40%;
+        background-color: rgb(73, 73, 104);;
+      }
