@@ -17,6 +17,8 @@ margin-left: 20px;
  .login {
      padding-top: 100px;
      padding-bottom: auto;
+     
+   
  }
 
  /*AQUI É FEITO O ALINHAMENTO DO INPUT*/
@@ -26,8 +28,20 @@ margin-left: 20px;
     margin-right: auto;
     width: 350px;
     border-radius: 3px;
-    
+    background-color: rgb(228, 222, 222);
+    color: black;
    
+ }
+ /*Aqui foi Adicionado select do cadastro do usuário para cadastrar o usuiáro do sistema Perfil*/
+ .login select{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+  border-radius: 3px;
+  padding-bottom: 3px;
+  background-color: rgb(228, 222, 222);
+  color: black;
  }
  /*AQUI É FEITO O ALINHAMENTO DO BOTÃO*/
  .login button{
@@ -37,6 +51,7 @@ margin-left: 20px;
     background-color: darkslategray;
     color: floralwhite;
     width: 350px;
+    padding-top: 5px;
     }
 
     section a{
