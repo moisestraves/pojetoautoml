@@ -14,14 +14,14 @@
     <div class="container">
    
         <div class="login">
-    <form  method="POST" action="">
-        <h5 class="text-center text-success">Cadastro de Usuário</h5>
+    <form  method="POST" action="config/cadastro_usuario.php">
+        <h5 class="text-center text-success">Cadastro Usuário</h5>
  
     <input type="text"  name="nome" placeholder="NOME DO USUÁRIO" required ><br>
     <input type="e-mail"  name="login"placeholder="LOGIN" required ><br>
     <input type="password" name="senha" placeholder="SENHA" required><br>
 
-    <select name="pefil" id="perfilusuario" required>
+    <select name="perfil" id="perfilusuario" required>
         <option value="0">É ADMINISTRADOR DO SISTEMA ?</option>
         <option value="1">N</option>
         <option value="2">S</option>
@@ -29,13 +29,10 @@
    
     
    
-  <input style="background-color: black; color:white; " type="submit" value="cadastrar">
+  <input style="background-color: black; color:white; " type="submit" name="cadastrar" value="cadastrar">
     </form>
         </div>
 </div>
 </body>
 </html>
 
-
-
-    
