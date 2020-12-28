@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-
+//Function que faz o cadastro do login do usuário//
     
 function cadastrarUsuario($conexao,$nome,$email,$senhaUsuario,$usuarioPerfil){
 
@@ -16,6 +16,8 @@ function cadastrarUsuario($conexao,$nome,$email,$senhaUsuario,$usuarioPerfil){
 
  
 }
+
+// Function  que  faz a verificação do e-mail, se o e-mail for localizado não faz o cadastro em dúplicidade //
 
 function consuntaEmail($conexao,$email){
 
