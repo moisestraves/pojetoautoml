@@ -15,7 +15,7 @@
    
         <div class="login">
     <form  method="POST" action="config/cadastro_usuario.php">
-        <h5 class="text-center text-success">Cadastro Usuário</h5>
+        <h5 class="text-center text-success">Cadastrar Usuário</h5>
  
     <input type="text"  name="nome" placeholder="NOME DO USUÁRIO" required ><br>
     <input type="e-mail"  name="login"placeholder="LOGIN" required ><br>
