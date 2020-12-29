@@ -17,7 +17,7 @@ if(strlen($nomeUsuario) > 100){
 
 }if(strlen($senhaUsuario) > 8){
     echo" Tamanho da Senha Maior que o Permitido <br>";
-    echo"Tamanho máximo 8 caracteres";
+    echo"Tamanho maximo 8 caracteres";
     
 }else{
 
