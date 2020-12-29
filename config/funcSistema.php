@@ -1,5 +1,5 @@
 <?php 
-session_start();
+
 
 //Function que faz o cadastro do login do usuário//
     
@@ -28,6 +28,20 @@ function consuntaEmail($conexao,$email){
     $usuario = mysqli_num_rows($resulEmail);//Verificando a quantidade de links por retorno
     
     return $usuario; // Retornoando a quantidade de linhas licalizadas 
+    
+
+}
+
+// Funcion para listar  dados do usuário para  editar
+
+function lerUsuario($conexao,$idUsuario){
+
+    $sqlUsuario = "SELECT * FROM  usuario where idusuario ='$idUsuario";
+    $resulUsuario = mysqli_query($conexao,$sqlUsuario);
+
+    $usuarioDados = mysqli_fetch_array($resulUsuario);
+
+    printf($usuarioDados) ;
     
 
 }

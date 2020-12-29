@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+require 'config/conexao.php';
+require 'config/funcSistema.php';
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

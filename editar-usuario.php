@@ -7,8 +7,6 @@ require 'config/funcSistema.php';
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,8 +23,9 @@ require 'config/funcSistema.php';
     <div class="container">
    
         <div class="login">
-    <form  method="POST" action="config/cadastro_usuario.php">
-        <h5 class="text-center text-success">Cadastrar Usuário</h5>
+    <form  method="POST" action="config/update-usuario.php">
+        <h5 class="text-center text-success">Dados do Usuário</h5><br>
+       <h5 class="text-center text-danger">Escolha uma Opção para atualizar!</h5>
  
     <input type="text"  name="nome" placeholder="NOME DO USUÁRIO" required ><br>
     <input type="e-mail"  name="login"placeholder="LOGIN" required ><br>
@@ -38,12 +37,12 @@ require 'config/funcSistema.php';
         <option value="2">S</option>
 </select>
    
-    
+   <br> 
    
-  <input style="background-color: black; color:white; " type="submit" name="cadastrar" value="cadastrar">
+  <input style="background-color: black; color:white; " type="submit" name="cadastrar" value="Salvar">
+ 
     </form>
         </div>
 </div>
 </body>
 </html>
-
