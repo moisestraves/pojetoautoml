@@ -32,6 +32,18 @@ margin-left: 20px;
     color: black;
    
  }
+ /*Formatação para Label no Formulário de Edição dos Dados */
+ .login label{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+  /*border-radius: 3px;*/
+  font-family: 'Times New Roman', Times, serif;
+  font-size: larger;
+  text-transform: uppercase;
+  color: black;
+ }
  /*Aqui foi Adicionado select do cadastro do usuário para cadastrar o usuiáro do sistema Perfil*/
  .login select{
   display: block;

@@ -4,6 +4,18 @@ session_start();
 require 'config/conexao.php';
 require 'config/funcSistema.php';
 
+//Aqui foi Recebido o id pela url, do usuário selecionado pelo administrador para editar 
+
+$id_usuario = $_GET['id']; //Posso Alterar a Consulta do id para buscar pelo e-mail do usuário
+
+//var_dump($id_usuario);
+
+
+//Chamada da função que  pesquisa os dados  conforme a ID selecionada
+$dadosUsuario = lerDadosUsuario($conexao,$id_usuario);
+
+$resultadoUsuario = $dadosUsuario;
+
 
 ?>
 
@@ -13,7 +25,7 @@ require 'config/funcSistema.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/main.css"  >
+    <link rel="stylesheet" href="css/main.css"  >
     <title>Projeto AutoMl</title>
 </head>
 <header>
@@ -21,27 +33,40 @@ require 'config/funcSistema.php';
 </header>
 <body>
     <div class="container">
-   
+    <div >
+    <a href="home.php"><input style="background-color: blue; color:white; " type="submit" value="Sair"></a>
+    <a href="listar_usuarios.php"><input style="background-color: blue; color:white; " type="submit" value="Voltar"></a>
+    </div>
+    
         <div class="login">
+       
     <form  method="POST" action="config/update-usuario.php">
         <h5 class="text-center text-success">Dados do Usuário</h5><br>
-       <h5 class="text-center text-danger">Escolha uma Opção para atualizar!</h5>
- 
-    <input type="text"  name="nome" placeholder="NOME DO USUÁRIO" required ><br>
-    <input type="e-mail"  name="login"placeholder="LOGIN" required ><br>
-    <input type="password" name="senha" placeholder="SENHA" required><br>
-
+      
+    
+       <input type="text" name="id" value="<?php echo $resultadoUsuario ['idusuario'];?>">
+    <label>Nome</label>
+    <input type="text"  name="nome"  value="<?php echo $resultadoUsuario['nome'];?>">
+    <label>Login</label>
+    <input type="e-mail"  name="login" value="<?php echo $resultadoUsuario['email']; ?>" >
+    <label>Senha</label>
+    <input type="password" name="senha" value="<?php echo $resultadoUsuario['senha']; ?>" >
+    <label>Editar Perfil</label>
     <select name="perfil" id="perfilusuario" required>
-        <option value="0">É ADMINISTRADOR DO SISTEMA ?</option>
-        <option value="1">N</option>
-        <option value="2">S</option>
+        
+        <option value="<?php echo $resultadoUsuario['perfil']; ?>">N</option>
+        <option value="<?php echo $resultadoUsuario['perfil']; ?>">S</option>
 </select>
    
    <br> 
    
   <input style="background-color: black; color:white; " type="submit" name="cadastrar" value="Salvar">
+  
+
  
     </form>
+
+    
         </div>
 </div>
 </body>

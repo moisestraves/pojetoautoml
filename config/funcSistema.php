@@ -32,16 +32,59 @@ function consuntaEmail($conexao,$email){
 
 }
 
-// Funcion para listar  dados do usuário para  editar
+//Funcion que lista todos os usuários do sistemas
 
-function lerUsuario($conexao,$idUsuario){
+function lerUsuarios($conexao){
 
-    $sqlUsuario = "SELECT * FROM  usuario where idusuario ='$idUsuario";
+    $sqlUsuario = 'SELECT idusuario,nome,email,perfil FROM  usuario  ORDER BY nome ';
+    
     $resulUsuario = mysqli_query($conexao,$sqlUsuario);
 
-    $usuarioDados = mysqli_fetch_array($resulUsuario);
+    $usuarios = array();
+ 
 
-    printf($usuarioDados) ;
+    while ($usuario = mysqli_fetch_assoc($resulUsuario)) {
+       
+        $usuarios[] = $usuario;
+    }
+
+    return $usuarios;
+}
+
+// Funcion que seleciona os dados do usuário selecionado pelo administrador ou usuário para editar
+
+function lerDadosUsuario($conexao,$idUsuario){
+
+    $sqlUsuario = "SELECT idusuario, nome,email,senha,perfil FROM  usuario  where idusuario = '$idUsuario' ";
+    
+    $resulUsuario = mysqli_query($conexao,$sqlUsuario);
+    
+    $usuario = mysqli_fetch_assoc($resulUsuario);
+       
+    return $usuario;
+}
+
+//Function de Updade  dados so usuário 
+
+function atualizarDadosUsuario($conexao,$idUsuario,$nomeUsuario,$usuarioLogin,$senhaUsuario,$usuarioPerfil){
+
+    $novaSenha = md5($senhaUsuario);
+
+    $atualizarDados ="UPDATE usuario SET nome='$nomeUsuario',email='$usuarioLogin',senha='$novaSenha',perfil='$usuarioPerfil' where idusuario='?' ";
+
+    $resultadoUpdate = mysqli_query($conexao,$atualizarDados);
+
+ if($resultadoUpdate == 1){
+
+    echo"Dados Atualizado";
+ }else{
+
+    echo"nada atauzliado";
+ }
+    
+}
+
+
+
     
 
-}

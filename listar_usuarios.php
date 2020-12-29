@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+require 'config/conexao.php';
+require 'config/funcSistema.php';
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,31 +26,40 @@
     <form  method="POST" action="config/cadastro_usuario.php">
         <h3 class="text-center text-success">Usuários</h3>
 
-        <table class="table text-center " >
-            <thead>
+        <table class="table text-center table-hover table-sm table-light" >
+            <thead class="thead-light">
                 <tr>
-                <td >Nome</td>
-                <td>Login</td>
-                <td>Perfil</td>
-                <td>Editar</td>
-                <td>Excluir</td>
-            </th>
-                </tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Login</th>
+                <th scope="col">Perfil</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Excluir</th>
+               </tr>
             </thead>
-            <tr>
-            <td>Moises traves</td>
-            <td>traves8@msn.com</td>
-            <td>1</td>
-            <td><a href="#">Link</a></td>
-            <td><a href="#">Link</a></td>
-            </tr>
-           
+            <?php
+                $ListarUsuario = lerUsuarios($conexao);
+
+                    //Laço de Controle da lista de usuários 
+                 foreach ($ListarUsuario as $usuario){
+                   // print_r($ListarUsuario);
+
+                ?>
+
             
+            <tr>
+            <td><?= $usuario['nome'];?></td>
+            <td><?= $usuario['email'];?></td>
+            <td><?= $usuario['perfil'];?></td>
+            <td><a href="editar-usuario.php?id=<?=$usuario['idusuario']; ?>">AQUI</a></td>
+            <td><a href="editar-usuario.php?id=<?=$usuario['idusuario']; ?>">AQUI</a></td>
+            </tr>
+            
+           
+            <?php
+    } ?> 
 
         </table>
-   
-    
-   
+      
  
     </form>
         </div>
