@@ -4,7 +4,6 @@ session_start();
 require 'config/conexao.php';
 require 'config/funcSistema.php';
 
-
 ?>
 
 <!DOCTYPE html>
@@ -21,37 +20,34 @@ require 'config/funcSistema.php';
 </header>
 <body>
     <div class="container">
-   
+    
         <div class="login">
     <form  method="POST" action="config/cadastro_usuario.php">
-        <h3 class="text-center text-success">Usuários</h3>
+    <h5 class="text-center text-uppercase text-dark bg-white"> Relatório  de Usuários</h5>
 
-        <table class="table text-center table-hover table-sm table-light" >
-            <thead class="thead-light">
+        <table class="table text-center table-hover table-sm table-light " >
+            <thead class="thead-light  text-uppercase">
                 <tr>
                 <th scope="col">Nome</th>
                 <th scope="col">Login</th>
-                <th scope="col">Perfil</th>
                 <th scope="col">Editar</th>
-                <th scope="col">Excluir</th>
+                <th scope="col">Deletar</th>
                </tr>
             </thead>
             <?php
                 $ListarUsuario = lerUsuarios($conexao);
 
-                    //Laço de Controle da lista de usuários 
+                 //Laço de Controle da lista de usuários 
                  foreach ($ListarUsuario as $usuario){
-                   // print_r($ListarUsuario);
+                  
 
                 ?>
-
-            
+         
             <tr>
             <td><?= $usuario['nome'];?></td>
             <td><?= $usuario['email'];?></td>
-            <td><?= $usuario['perfil'];?></td>
-            <td><a href="editar-usuario.php?id=<?=$usuario['idusuario']; ?>">AQUI</a></td>
-            <td><a href="editar-usuario.php?id=<?=$usuario['idusuario']; ?>">AQUI</a></td>
+            <td><a href="editar-usuario.php?id=<?=$usuario['idusuario']; ?>" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Editar</a></td>
+            <td><a href="excluir-usuario.php?id=<?=$usuario['idusuario']; ?>" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Remover</a></td>
             </tr>
             
            

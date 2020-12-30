@@ -15,9 +15,9 @@ if(strlen($nomeUsuario) > 100){
 }if(strlen($emailLogin) > 100){
     echo"<h1>Campo do E-mail  é maior que o permitido</h1>";
 
-}if(strlen($senhaUsuario) > 8){
+/*}if(strlen($senhaUsuario) < 8){ // Verificar Logica Da Senha
     echo" Tamanho da Senha Maior que o Permitido <br>";
-    echo"Tamanho maximo 8 caracteres";
+    echo"Tamanho maximo 8 caracteres";*/
     
 }else{
 

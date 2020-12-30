@@ -13,12 +13,9 @@ function cadastrarUsuario($conexao,$nome,$email,$senhaUsuario,$usuarioPerfil){
         
    return mysqli_query($conexao,$sqlInsert) or die(mysqli_error($conexao));
  
-
- 
 }
 
 // Function  que  faz a verificação do e-mail, se o e-mail for localizado não faz o cadastro em dúplicidade //
-
 function consuntaEmail($conexao,$email){
 
     $sqlEmail ="SELECT email FROM usuario WHERE email= '$email' ";
@@ -28,18 +25,15 @@ function consuntaEmail($conexao,$email){
     $usuario = mysqli_num_rows($resulEmail);//Verificando a quantidade de links por retorno
     
     return $usuario; // Retornoando a quantidade de linhas licalizadas 
-    
-
 }
-
 //Funcion que lista todos os usuários do sistemas
-
 function lerUsuarios($conexao){
 
     $sqlUsuario = 'SELECT idusuario,nome,email,perfil FROM  usuario  ORDER BY nome ';
     
     $resulUsuario = mysqli_query($conexao,$sqlUsuario);
 
+    //Aqui foi criado um array  que vou usar para guardas os dados da query
     $usuarios = array();
  
 
@@ -65,22 +59,33 @@ function lerDadosUsuario($conexao,$idUsuario){
 }
 
 //Function de Updade  dados so usuário 
-
 function atualizarDadosUsuario($conexao,$idUsuario,$nomeUsuario,$usuarioLogin,$senhaUsuario,$usuarioPerfil){
 
     $novaSenha = md5($senhaUsuario);
 
-    $atualizarDados ="UPDATE usuario SET nome='$nomeUsuario',email='$usuarioLogin',senha='$novaSenha',perfil='$usuarioPerfil' where idusuario='?' ";
+    $atualizarDados ="UPDATE usuario SET nome='$nomeUsuario',email='$usuarioLogin',senha='$novaSenha',perfil='$usuarioPerfil' where idusuario='$idUsuario' ";
+    $queryUpdate = mysqli_query($conexao,$atualizarDados);
 
-    $resultadoUpdate = mysqli_query($conexao,$atualizarDados);
+    $resultadoUpdate = $queryUpdate;
 
- if($resultadoUpdate == 1){
+    
+        return $resultadoUpdate;
 
-    echo"Dados Atualizado";
- }else{
+}
 
-    echo"nada atauzliado";
- }
+//Funcion Delete Usuário
+
+function removerLoginUsuario ($conexao,$idRemover){
+
+    $sqlDelete ="DELETE  FROM  usuario where idusuario ='$idRemover' LIMIT 1";
+
+    $exeRemover = mysqli_query($conexao,$sqlDelete);
+    
+    //Aqui estou pegando o resultado da query
+    $deletouLogin = $exeRemover;
+    
+    return $deletouLogin;
+
     
 }
 

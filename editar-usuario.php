@@ -4,6 +4,7 @@ session_start();
 require 'config/conexao.php';
 require 'config/funcSistema.php';
 
+
 //Aqui foi Recebido o id pela url, do usuário selecionado pelo administrador para editar 
 
 $id_usuario = $_GET['id']; //Posso Alterar a Consulta do id para buscar pelo e-mail do usuário
@@ -33,9 +34,11 @@ $resultadoUsuario = $dadosUsuario;
 </header>
 <body>
     <div class="container">
-    <div >
-    <a href="home.php"><input style="background-color: blue; color:white; " type="submit" value="Sair"></a>
-    <a href="listar_usuarios.php"><input style="background-color: blue; color:white; " type="submit" value="Voltar"></a>
+    <div class="bot_nav">
+    <a href="home.php" class="btn btn-success btn-sm active text-uppercase" role="button" aria-pressed="true">Sair</a></td>
+    <a href="listar_usuarios.php" class="btn btn-danger btn-sm active text-uppercase" role="button" aria-pressed="true">Cancelar</a></td>
+    
+    
     </div>
     
         <div class="login">
@@ -44,7 +47,7 @@ $resultadoUsuario = $dadosUsuario;
         <h5 class="text-center text-success">Dados do Usuário</h5><br>
       
     
-       <input type="text" name="id" value="<?php echo $resultadoUsuario ['idusuario'];?>">
+       <input type="hidden" name="id" value="<?php echo $resultadoUsuario ['idusuario'];?>">
     <label>Nome</label>
     <input type="text"  name="nome"  value="<?php echo $resultadoUsuario['nome'];?>">
     <label>Login</label>
@@ -60,7 +63,9 @@ $resultadoUsuario = $dadosUsuario;
    
    <br> 
    
-  <input style="background-color: black; color:white; " type="submit" name="cadastrar" value="Salvar">
+  <input style="background-color: black; color:white; " type="submit" name="cadastrar" value="Editar">
+  
+
   
 
  
