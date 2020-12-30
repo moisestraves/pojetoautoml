@@ -4,11 +4,7 @@ session_start();
 require 'config/conexao.php';
 require 'config/funcSistema.php';
 
-
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -42,7 +38,17 @@ require 'config/funcSistema.php';
    
   <input style="background-color: black; color:white; " type="submit" name="cadastrar" value="cadastrar">
     </form>
+   
         </div>
+
+        <h5 class ="text-center text-danger">
+    <?php if(isset($_SESSION['loginErro']));
+    
+        /*Aqui Foi inserido o erro Global*/
+     echo  $_SESSION['loginErro'];
+     unset ($_SESSION['loginErro']);
+
+   ?>
 </div>
 </body>
 </html>

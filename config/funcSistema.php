@@ -1,13 +1,13 @@
 <?php 
-
+ 
 
 //Function que faz o cadastro do login do usuário//
     
 function cadastrarUsuario($conexao,$nome,$email,$senhaUsuario,$usuarioPerfil){
 
-    $password =MD5($senhaUsuario);
    
-    $sqlInsert ="INSERT INTO usuario (nome , email , senha , perfil) VALUES ('$nome','$email','$password','$usuarioPerfil')";
+   
+    $sqlInsert ="INSERT INTO usuario (nome , email , senha , perfil) VALUES ('$nome','$email','$senhaUsuario','$usuarioPerfil')";
       
      
         
@@ -89,7 +89,41 @@ function removerLoginUsuario ($conexao,$idRemover){
     
 }
 
+//Function Processa Login do Usuário no Sistema
+function logarUsuario ($conexao,$login,$senha){
 
+    // SELECT DO LOGIN E SENHA DO USUÁRIO
+   $queryLogin = "SELECT * FROM usuario WHERE email ='$login' && senha = '$senha' LIMIT 1";
+
+    $resultadoLogin = mysqli_query($conexao,$queryLogin);
+
+    $resultado =mysqli_fetch_assoc($resultadoLogin) ;
+
+    //var_dump($resultado);
+    
+    if(empty($resultado)){
+
+        $_SESSION['loginErro'] = "Usuário ou Senha Invalido";
+
+    header('location:../home.php');
+
+    }elseif(isset($resultado)){ 
+
+        // Aqui eu fiz a criação de um array para armazenar os dados de retorno
+        $dados = array();
+
+            $dados [] = $resultado;
+           
+           
+           //Criação da Sessão com o login
+           $_SESSION ['id'] = $dados[0]['idusuario'];
+           $_SESSION ['nomeuser'] = $dados[0]['nome'];
+
+       header('location: ../listar_usuarios.php');
+    }
+
+   
+}
 
     
 

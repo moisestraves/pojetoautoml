@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require 'conexao.php';
 require 'funcSistema.php';
 ;
@@ -6,7 +9,7 @@ if(isset($_POST['cadastrar'])){
 
 $nomeUsuario = $_POST['nome'];
 $emailLogin = $_POST['login'];
-$senhaUsuario= $_POST['senha'];
+$senhaUsuario= $_POST['senha']; // md5 Senha correção
 $usuarioPerfil =$_POST['perfil'];
 
 if(strlen($nomeUsuario) > 100){
@@ -26,12 +29,12 @@ if(strlen($nomeUsuario) > 100){
         //var_dump($constEmail);
 
         if($constEmail == 1) {
-
-            header('location:../erro_email.php'); // Encaminhamento página de erro, com informações de login já cadastrado
+            $_SESSION['loginErro'] = "O email já cadastrado";
+            header('location:../cadastrar-usuario.php'); // Encaminhamento página de erro, com informações de login já cadastrado
             
         }else{
 
-            
+           
         $cadastro = cadastrarUsuario($conexao,$nomeUsuario,$emailLogin,$senhaUsuario,$usuarioPerfil);
 
         if($cadastro == 1){

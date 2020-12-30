@@ -4,6 +4,15 @@ session_start();
 require 'config/conexao.php';
 require 'config/funcSistema.php';
 
+
+if(empty($_SESSION['id'])){
+
+    
+
+    header('location:home.php');
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +29,12 @@ require 'config/funcSistema.php';
 </header>
 <body>
     <div class="container">
-    
+
+    <p>ID_USUÁRIO<?php echo $_SESSION['id']; ?></p>
+Olá, <?php echo $_SESSION['nomeuser']; ?> </p>
         <div class="login">
+        
+
     <form  method="POST" action="config/cadastro_usuario.php">
     <h5 class="text-center text-uppercase text-dark bg-white"> Relatório  de Usuários</h5>
 

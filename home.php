@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    
+    
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,13 +19,24 @@
     <div class="container">
    
         <div class="login">
-
+    <form method="POST" action="config/login.php">
  
-    <input type="e-mail" placeholder="LOGIN" ><br>
-    <input type="password" placeholder="SENHA"><br>
+    <input type="e-mail"  name ="login" placeholder="LOGIN" ><br>
+    <input type="password" name ="senha" placeholder="SENHA"><br>
+    
    
-   <a href="cenarios.php"><input style="background-color: black; color:white; " type="submit" value="Entrar"></a>
+   <input style="background-color: black; color:white; " type="submit" value="Entrar"></a>
 
+    </form>
+    <h5 class ="text-center text-danger">
+    <?php if(isset($_SESSION['loginErro']));
+
+        /*Aqui Foi inserido o erro Global*/
+     echo  $_SESSION['loginErro'];
+     unset ($_SESSION['loginErro']);
+
+   ?>
+    </h5>
         </div>
 </div>
 </body>
