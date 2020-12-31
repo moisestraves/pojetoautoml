@@ -4,22 +4,24 @@ session_start();
 require 'config/conexao.php';
 require 'config/funcSistema.php';
 
+if(empty($_SESSION['id'])){
+
+    
+
+    header('location:home.php');
+
+}
 
 //Aqui foi Recebido o id pela url, do usuário selecionado pelo administrador para editar 
 
 $id_usuario = $_GET['id']; //Posso Alterar a Consulta do id para buscar pelo e-mail do usuário
 
-//var_dump($id_usuario);
-
-
 //Chamada da função que  pesquisa os dados  conforme a ID selecionada
 $dadosUsuario = lerDadosUsuario($conexao,$id_usuario);
 
+//Variavel que esta quardando os dados do login
 $resultadoUsuario = $dadosUsuario;
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -59,16 +61,9 @@ $resultadoUsuario = $dadosUsuario;
         
         <option value="<?php echo $resultadoUsuario['perfil']; ?>">N</option>
         <option value="<?php echo $resultadoUsuario['perfil']; ?>">S</option>
-</select>
-   
+    </select>
    <br> 
-   
   <input style="background-color: black; color:white; " type="submit" name="cadastrar" value="Editar">
-  
-
-  
-
- 
     </form>
 
     

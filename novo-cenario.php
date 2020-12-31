@@ -28,10 +28,10 @@ require 'config/funcSistema.php';
 
  <h2>Cenários</h2>
 
- <form method="POST" action="#" enctype="multipart/form-data">
+ <form method="POST" action="confi/upload.php" enctype="multipart/form-data">
      <div>
      <label>ID CENÁRIO</label>
-     <input type="text" placeholder="SalesPred01" >
+     <input type="text" name="fileToUpload" placeholder="SalesPred01" >
      </div>
      <div>
      <label>DESCRIÇÃO</label>

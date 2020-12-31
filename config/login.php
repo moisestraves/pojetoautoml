@@ -12,7 +12,7 @@ if((isset($_POST['login'])) && (isset($_POST['senha']))){
 
            $acessar = logarUsuario ($conexao,$loginUsuario,$senhaUsuario);
 
-           print_r($acessar);
+          // print_r($acessar);
 
     
  } else{

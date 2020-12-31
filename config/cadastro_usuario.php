@@ -1,10 +1,9 @@
 <?php
 
 session_start();
-
 require 'conexao.php';
 require 'funcSistema.php';
-;
+
 if(isset($_POST['cadastrar'])){
 
 $nomeUsuario = $_POST['nome'];
@@ -39,7 +38,7 @@ if(strlen($nomeUsuario) > 100){
 
         if($cadastro == 1){
 
-           header('location:../cadastrosucesso.php');
+           header('location:../listar_usuarios.php');
 
 
         }

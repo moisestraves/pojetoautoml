@@ -4,6 +4,15 @@ session_start();
 require 'config/conexao.php';
 require 'config/funcSistema.php';
 
+if(empty($_SESSION['id'])){
+
+    
+
+    header('location:home.php');
+
+}
+
+
 
 ?>
 
