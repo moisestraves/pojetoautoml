@@ -105,7 +105,7 @@ function logarUsuario ($conexao,$login,$senha){
 
         $_SESSION['loginErro'] = "Usuário ou Senha Invalido";
 
-    header('location:../home.php');
+    header('location:../index.php');
 
     }elseif(isset($resultado)){ 
 
@@ -119,7 +119,7 @@ function logarUsuario ($conexao,$login,$senha){
            $_SESSION ['id'] = $dados[0]['idusuario'];
            $_SESSION ['nomeuser'] = $dados[0]['nome'];
 
-       header('location: ../listar_usuarios.php');
+       header('location: ../cenarios.php');
     }
 
    

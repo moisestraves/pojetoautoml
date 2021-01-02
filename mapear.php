@@ -4,6 +4,14 @@ session_start();
 require 'config/conexao.php';
 require 'config/funcSistema.php';
 
+if(empty($_SESSION['id'])){
+
+    
+
+    header('location:index.php');
+
+}
+
 
 ?>
 
@@ -18,7 +26,7 @@ require 'config/funcSistema.php';
     <title>Projeto AutoMl</title>
 </head>
 <header>
-<h2>Mapear</h2>
+<h2>Mapeamento</h2>
 </header>
 <body>
 
@@ -49,9 +57,9 @@ require 'config/funcSistema.php';
              
 </table>
 <section>
-<a href="cenarios.php">Anterior</a>
+<a href="novo-cenario.php">Anterior</a>
  <a href="treino.php">Próximo</a> 
- <a href="home.php">Sair</a> 
+ 
 </section>
 </div>
         

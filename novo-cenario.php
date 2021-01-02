@@ -5,6 +5,16 @@ require 'config/conexao.php';
 require 'config/funcSistema.php';
 
 
+if(empty($_SESSION['id'])){
+
+    
+
+    header('location:index.php');
+
+}
+
+
+
 ?>
 
 
@@ -31,7 +41,7 @@ require 'config/funcSistema.php';
  <form method="POST" action="confi/upload.php" enctype="multipart/form-data">
      <div>
      <label>ID CENÁRIO</label>
-     <input type="text" name="fileToUpload" placeholder="SalesPred01" >
+     <input type="text" name="fileToUpload" placeholder="SalesProd" >
      </div>
      <div>
      <label>DESCRIÇÃO</label>
@@ -45,7 +55,7 @@ require 'config/funcSistema.php';
  </form>
 <section>
 <a href="mapear.php">Próximo passo</a>
-<a href="home.php">Sair</a>
+
 
 </section>
         </div>

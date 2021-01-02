@@ -19,7 +19,7 @@ if((isset($_POST['login'])) && (isset($_POST['senha']))){
 
     $_SESSION['loginErro'] = "Usuário ou Senha Invalido";
 
-    header('location:../home.php');
+    header('location:../index.php');
     }
     
     

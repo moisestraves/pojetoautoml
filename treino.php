@@ -5,6 +5,18 @@ require 'config/conexao.php';
 require 'config/funcSistema.php';
 
 
+if(empty($_SESSION['id'])){
+
+    
+
+  header('location:index.php');
+
+}
+
+
+
+?>
+
 ?>
 
 
@@ -23,31 +35,28 @@ require 'config/funcSistema.php';
 <body>
     <div class="container">
    
-        <div class="telacenarios">
-
+        
  <h2>Treinar</h2>
 
- <form method="POST" action="#" >
+ <form class="caixaFormulario" method="POST" action="#" >
      <div>
-     <label>Treino</label>
-     <input type="number" id="treino" name="treino"
-       min="0" max="100">
+     <label>Treino</label> <br>  <input type="number" id="treino" name="treino"
+       min="0" max="100"><br>
      </div>
-     <div>
-     <label>Validação</label>
-     <input type="number" id="validacao" name="validacao"
-       min="0" max="100">
+    <div>
+     <label>Validação</label><br> <input type="number" id="validacao" name="validacao"
+       min="0" max="100"><br>
      </div>
+     <br><br>
 
      
  </form>
 <section>
-<a href="mapear.php">Voltar</a>
+<a href="mapear.php">Anterior</a>
 <a href="execucao.php">Próximo</a>
-<a href="home.php">Sair</a>
 
 </section>
-        </div>
+       
 </div>
 </body>
 </html>

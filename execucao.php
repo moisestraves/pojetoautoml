@@ -5,6 +5,16 @@ require 'config/conexao.php';
 require 'config/funcSistema.php';
 
 
+if(empty($_SESSION['id'])){
+
+    
+
+    header('location:index.php');
+
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +34,7 @@ require 'config/funcSistema.php';
         <h4>Execução</h4>
 
         <form class="caixaFormulario">
-            <label>Variavel Alvo</label>       <input type="text" i><br><br>
+            <label>Variavel Alvo</label>       <input type="text" ><br><br>
             <label>Tipo de Problema</label>  <input type="text"><br><br>
             <label>Budget</label> <input type="text"><br> <br>
             
@@ -33,8 +43,8 @@ require 'config/funcSistema.php';
         </form>
 
         <section>
-<a href="mapear.php">Próximo passo</a>
-<a href="home.php">Sair</a>
+<a href="treino.php">Passo Anterior</a>
+<a href="#">Executar</a>
 
 </section>
     </div>

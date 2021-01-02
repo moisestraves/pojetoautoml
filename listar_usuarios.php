@@ -9,7 +9,7 @@ if(empty($_SESSION['id'])){
 
     
 
-    header('location:home.php');
+    header('location:index.php');
 
 }
 
