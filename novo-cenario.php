@@ -38,27 +38,26 @@ if(empty($_SESSION['id'])){
 
  <h2>Cenários</h2>
 
- <form method="POST" action="confi/upload.php" enctype="multipart/form-data">
+ <form  action="upload.php" method="post" enctype="multipart/form-data">
      <div>
      <label>ID CENÁRIO</label>
-     <input type="text" name="fileToUpload" placeholder="SalesProd" >
+     <input type="text" name="idcenario" placeholder="SalesProd" >
      </div>
      <div>
      <label>DESCRIÇÃO</label>
-     <input type="text" placeholder="Sales Prediction">
+     <input type="text" name="descenario" placeholder="Sales Prediction">
      </div>
 
      <div>
    
-    <input type="file" placeholder="INSERIR ARQUIVO">
+    <input type="file" name ="arquivoUpload"placeholder="INSERIR ARQUIVO">
      </div>
+     <br>
+     
+    <button type="submit" class="btn btn-dark">Upload File</button>
+
  </form>
-<section>
-<a href="mapear.php">Próximo passo</a>
-
-
-</section>
-        </div>
+ </div>
 </div>
 </body>
 </html>
