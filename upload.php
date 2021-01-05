@@ -2,8 +2,7 @@
 
 //Aqui estou recebendo o nome do cenário e a descrição do cenário 
 //com o arquivo para apload
-//
-//$descCenario =$_POST['descenario'];
+
 
 
 
