@@ -1,5 +1,16 @@
 <?php 
+session_start();
+require 'config/conexao.php';
+require 'config/funcSistema.php';
 
+
+if(empty($_SESSION['id'])){
+
+    
+
+    header('location:index.php');
+  
+  }
 //Aqui estou recebendo o nome do cenário e a descrição do cenário 
 //com o arquivo para apload
 
