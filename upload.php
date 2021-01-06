@@ -4,6 +4,7 @@ require 'config/conexao.php';
 require 'config/funcSistema.php';
 
 
+
 if(empty($_SESSION['id'])){
 
     
@@ -12,18 +13,17 @@ if(empty($_SESSION['id'])){
   
   }
 //Aqui estou recebendo o nome do cenário e a descrição do cenário 
+
+$id=$_SESSION['id'];//Id do usuário que faz a solicitação
+
 //com o arquivo para apload
-
-
-
-
+$idCenario = $_POST['idcenario'];
+$desCenario= $_POST['descenario'];
 
 //ajustar com nome e cenario
-$idCenario =$_POST['idcenario'];
-$descCenario =$_POST['descenario'];
-$descCenario =$_POST['descenario'];
-$folder_upload = 'arquivoUpload';
-$folder_data = 'upload/';
+
+$folder_upload = 'uploadArquivos/'; // Nome do Diretorio de 
+$folder_data = 'uploadArquivos/arquivoUpload';
 
 //se nao existir, criar
 if (!is_dir($folder_upload )) {
@@ -62,7 +62,9 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["arquivoUpload"]["tmp_name"], $target_file)) {
-    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    echo "Upload do arquivo ". htmlspecialchars( basename( $_FILES["arquivoUpload"]["name"])). " com sucesso!.";
+
+   
   } else {
     echo "<b>Sorry, there was an error uploading your file.</b><br>";
   }
@@ -74,11 +76,25 @@ echo '<b>First 10 lines of File</b></br></br>';
 $lines = 0;
 $f = fopen($target_file, 'r');
 echo "<table border = 1>";
-while (($line = fgetcsv($f)) !== false && $lines <= 10) {
+while (($line = fgetcsv($f )) !== false && $lines <= 10 ) {
+ // var_dump($line);
+    //Criação das variaveis para efetuar o insert no banco
+    $usuario =$id;
+    $nomeId =$idCenario ;
+    $evento =$desCenario;
+    $nome = utf8_decode($lines[0]);
+    $sobrenome = utf8_decode($lines[1]);
+
+    //$sql ="INSERT INTO mapeamento (upload_arquivo_idarquivo,nomearquivo,telefone,estado) VALUES ('$usuario','$nomeId','$nome','$sobrenome')";
+    //return mysqli_query($conexao,$sql) or die(mysqli_error($conexao));
+
+  
     
     echo "<tr>";
     foreach ($line as $cell) {
         echo "<td>" . htmlspecialchars($cell) . "</td>";
+        
+        
     }
     echo "</tr>\n";
     
