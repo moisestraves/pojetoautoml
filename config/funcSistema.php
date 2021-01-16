@@ -29,7 +29,7 @@ function consuntaEmail($conexao,$email){
 //Funcion que lista todos os usuários do sistemas
 function lerUsuarios($conexao){
 
-    $sqlUsuario = 'SELECT idusuario,nome,email,perfil FROM  usuario  ORDER BY nome ';
+    $sqlUsuario = 'SELECT codusuario,nome,email,perfil FROM  usuario  ORDER BY nome ';
     
     $resulUsuario = mysqli_query($conexao,$sqlUsuario);
 
@@ -49,7 +49,7 @@ function lerUsuarios($conexao){
 
 function lerDadosUsuario($conexao,$idUsuario){
 
-    $sqlUsuario = "SELECT idusuario, nome,email,senha,perfil FROM  usuario  where idusuario = '$idUsuario' ";
+    $sqlUsuario = "SELECT codusuario, nome,email,senha,perfil FROM  usuario  where codusuario = '$idUsuario' ";
     
     $resulUsuario = mysqli_query($conexao,$sqlUsuario);
     
@@ -63,7 +63,7 @@ function atualizarDadosUsuario($conexao,$idUsuario,$nomeUsuario,$usuarioLogin,$s
 
     $novaSenha = md5($senhaUsuario);
 
-    $atualizarDados ="UPDATE usuario SET nome='$nomeUsuario',email='$usuarioLogin',senha='$novaSenha',perfil='$usuarioPerfil' where idusuario='$idUsuario' ";
+    $atualizarDados ="UPDATE usuario SET nome='$nomeUsuario',email='$usuarioLogin',senha='$novaSenha',perfil='$usuarioPerfil' where codusuario='$idUsuario' ";
     $queryUpdate = mysqli_query($conexao,$atualizarDados);
 
     $resultadoUpdate = $queryUpdate;
@@ -97,32 +97,47 @@ function logarUsuario ($conexao,$login,$senha){
 
     $resultadoLogin = mysqli_query($conexao,$queryLogin);
 
-    $resultado =mysqli_fetch_assoc($resultadoLogin) ;
+    $resultadoDadosUsuario = mysqli_fetch_assoc($resultadoLogin);
 
-    //var_dump($resultado);
+    //Array criado  para guardar os dados do usuário encontrado
+    $dados = array();
+
+    $dados [] = $resultadoDadosUsuario;
+
+    if($resultadoDadosUsuario !=null){
+       //Criando a session com os dados do login
+       $_SESSION ['id'] = $dados[0]['codusuario'];
+       $_SESSION ['nomeuser'] = $dados[0]['nome'];
+
+       $login = $dados[0]['codusuario'];
+
+       $updateLogin = atualizaLogin($conexao,$login);
+
+   header('location:paineladm.php');
+        
+    }else{
+
+        $_SESSION['loginErro'] = "Usuário ou Senha Invalido <br> Verifique os dados do usuário";
+
+        header('location:../index.php');
+
+       
     
-    if(empty($resultado)){
-
-        $_SESSION['loginErro'] = "Usuário ou Senha Invalido";
-
-    header('location:../index.php');
-
-    }elseif(isset($resultado)){ 
-
-        // Aqui eu fiz a criação de um array para armazenar os dados de retorno
-        $dados = array();
-
-            $dados [] = $resultado;
-           
-           
-           //Criação da Sessão com o login
-           $_SESSION ['id'] = $dados[0]['idusuario'];
-           $_SESSION ['nomeuser'] = $dados[0]['nome'];
-
-       header('location: ../cenarios.php');
+    
     }
 
    
+}
+
+//function que faz o registro do último login do usuário
+function atualizaLogin($conexao,$id){
+
+   $atualuzarLogin = "UPDATE usuario SET ultimoacesso = CURRENT_TIMESTAMP() WHERE usuario.codusuario = '$id'";
+   $resultado = mysqli_query($conexao, $atualuzarLogin); // SELECIONANDO INFORMARÇÂO CONFORME O ID
+    
+   //echo($resultado);
+
+
 }
 
     

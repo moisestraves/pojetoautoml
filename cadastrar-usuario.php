@@ -32,14 +32,14 @@ if(empty($_SESSION['id'])){
     <form  method="POST" action="config/cadastro_usuario.php">
         <h5 class="text-center text-success">Cadastrar Usuário</h5>
  
-    <input type="text"  name="nome" placeholder="NOME DO USUÁRIO" required ><br>
+    <input type="text"  name="nome" placeholder="NOME DO USUÁRIO"  required ><br>
     <input type="e-mail"  name="login"placeholder="LOGIN" required ><br>
     <input type="password" name="senha" placeholder="SENHA" required><br>
 
     <select name="perfil" id="perfilusuario" required>
-        <option value="0">É ADMINISTRADOR DO SISTEMA ?</option>
-        <option value="1">N</option>
-        <option value="2">S</option>
+        <option value="A">É ADMINISTRADOR DO SISTEMA ?</option>
+        <option value="U">N</option>
+        <option value="A">S</option>
 </select>
    
     
@@ -50,11 +50,11 @@ if(empty($_SESSION['id'])){
         </div>
 
         <h5 class ="text-center text-danger">
-    <?php if(isset($_SESSION['loginErro']));
+    <?php if(empty($_SESSION['loginErro']));
     
         /*Aqui Foi inserido o erro Global*/
-     echo  $_SESSION['loginErro'];
-     unset ($_SESSION['loginErro']);
+    // echo  $_SESSION['loginErro'];
+    // unset ($_SESSION['loginErro']);
 
    ?>
 </div>

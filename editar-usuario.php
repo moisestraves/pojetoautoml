@@ -16,6 +16,9 @@ if(empty($_SESSION['id'])){
 
 $id_usuario = $_GET['id']; //Posso Alterar a Consulta do id para buscar pelo e-mail do usuário
 
+var_dump($id_usuario);
+
+
 //Chamada da função que  pesquisa os dados  conforme a ID selecionada
 $dadosUsuario = lerDadosUsuario($conexao,$id_usuario);
 
@@ -49,7 +52,7 @@ $resultadoUsuario = $dadosUsuario;
         <h5 class="text-center text-success">Dados do Usuário</h5><br>
       
     
-       <input type="hidden" name="id" value="<?php echo $resultadoUsuario ['idusuario'];?>">
+       <input type="hidden" name="id" value="<?php echo $resultadoUsuario ['codusuario'];?>">
     <label>Nome</label>
     <input type="text"  name="nome"  value="<?php echo $resultadoUsuario['nome'];?>">
     <label>Login</label>
@@ -59,8 +62,8 @@ $resultadoUsuario = $dadosUsuario;
     <label>Editar Perfil</label>
     <select name="perfil" id="perfilusuario" required>
         
-        <option value="<?php echo $resultadoUsuario['perfil']; ?>">N</option>
-        <option value="<?php echo $resultadoUsuario['perfil']; ?>">S</option>
+        <option value="U"<?php echo $resultadoUsuario['perfil']; ?>>N</option>
+        <option value="A"<?php echo $resultadoUsuario['perfil']; ?>>S</option>
     </select>
    <br> 
   <input style="background-color: black; color:white; " type="submit" name="cadastrar" value="Editar">

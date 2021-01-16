@@ -29,9 +29,10 @@ if(empty($_SESSION['id'])){
 </header>
 <body>
     <div class="container">
-
-    <p>ID_USUÁRIO<?php echo $_SESSION['id']; ?></p>
-Olá, <?php echo $_SESSION['nomeuser']; ?> </p>
+    <div class="container">
+<p >Código Usuário <?php echo $_SESSION['id']; ?></p>
+<h5 class="text-success text-capitalize">Olá, seja bem vindo <?php echo $_SESSION['nomeuser']; ?> </h5>   </p>
+</div>
         <div class="login">
         
 
@@ -59,8 +60,8 @@ Olá, <?php echo $_SESSION['nomeuser']; ?> </p>
             <tr>
             <td><?= $usuario['nome'];?></td>
             <td><?= $usuario['email'];?></td>
-            <td><a href="editar-usuario.php?id=<?=$usuario['idusuario']; ?>" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Editar</a></td>
-            <td><a href="excluir-usuario.php?id=<?=$usuario['idusuario']; ?>" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Remover</a></td>
+            <td><a href="editar-usuario.php?id=<?=$usuario['codusuario']; ?>" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Editar</a></td>
+            <td><a href="excluir-usuario.php?id=<?=$usuario['codusuario']; ?>" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Remover</a></td>
             </tr>
             
            

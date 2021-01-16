@@ -8,7 +8,7 @@ if(isset($_POST['cadastrar'])){
 
 $nomeUsuario = $_POST['nome'];
 $emailLogin = $_POST['login'];
-$senhaUsuario= $_POST['senha']; // md5 Senha correção
+$senhaUsuario= $_POST['senha']; 
 $usuarioPerfil =$_POST['perfil'];
 
 if(strlen($nomeUsuario) > 100){
@@ -27,16 +27,19 @@ if(strlen($nomeUsuario) > 100){
 
         //var_dump($constEmail);
 
-        if($constEmail == 1) {
+        if($constEmail > 0) {
+
+                       
+            header('location:../cadastrar-usuario.php'); 
             $_SESSION['loginErro'] = "O email já cadastrado";
-            header('location:../cadastrar-usuario.php'); // Encaminhamento página de erro, com informações de login já cadastrado
+            // Encaminhamento página de erro, com informações de login já cadastrado
             
         }else{
 
            
         $cadastro = cadastrarUsuario($conexao,$nomeUsuario,$emailLogin,$senhaUsuario,$usuarioPerfil);
 
-        if($cadastro == 1){
+        if($cadastro > 0){
 
            header('location:../listar_usuarios.php');
 

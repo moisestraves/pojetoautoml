@@ -32,7 +32,7 @@
 
         /*Aqui Foi inserido o erro Global*/
      echo  $_SESSION['loginErro'];
-     unset ($_SESSION['loginErro']);
+    unset ($_SESSION['loginErro']);
 
    ?>
     </h5>
