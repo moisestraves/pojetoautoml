@@ -16,7 +16,7 @@ if(empty($_SESSION['id'])){
 
 $id_usuario = $_GET['id']; //Posso Alterar a Consulta do id para buscar pelo e-mail do usuário
 
-var_dump($id_usuario);
+//var_dump($id_usuario);
 
 
 //Chamada da função que  pesquisa os dados  conforme a ID selecionada

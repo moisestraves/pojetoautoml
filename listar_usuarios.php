@@ -5,7 +5,7 @@ require 'config/conexao.php';
 require 'config/funcSistema.php';
 
 
-if(empty($_SESSION['id'])){
+if(empty($_SESSION['id']) ){
 
     
 
@@ -28,12 +28,18 @@ if(empty($_SESSION['id'])){
 <h2>AutoMl</h2>
 </header>
 <body>
-    <div class="container">
-    <div class="container">
-<p >Código Usuário <?php echo $_SESSION['id']; ?></p>
-<h5 class="text-success text-capitalize">Olá, seja bem vindo <?php echo $_SESSION['nomeuser']; ?> </h5>   </p>
+    
+    <div class="container justify-content-end">
+    <div class="nav justify-content-end">
+<a class="nav justify-content-end " href="../sair.php"  > 
+<img src="./icones/logout-icon-18.png" width="8%" >
+</a>
+
+
 </div>
-        <div class="login">
+<h5 class="text-success text-capitalize">Usuário (a)<br> <?php echo $_SESSION['nomeuser']; ?> </h5>   </p>
+</div>
+        <div class="container">
         
 
     <form  method="POST" action="config/cadastro_usuario.php">
@@ -72,7 +78,11 @@ if(empty($_SESSION['id'])){
       
  
     </form>
-        </div>
+    <div class="container justify-content-end">
+    <div class="nav justify-content-end">
+<a class="nav justify-content-end " href="config/paineladm.php"  > 
+<img src="./icones/voltar.png" width="8%" >
+</a>
 </div>
 </body>
 </html>

@@ -14,7 +14,7 @@ if(empty($_SESSION['id'])){
   }
 //Aqui estou recebendo o nome do cenário e a descrição do cenário 
 
-$id=$_SESSION['id'];//Id do usuário que faz a solicitação
+$id = $_SESSION['id'];//Id do usuário que faz a solicitação
 
 //com o arquivo para apload
 $idCenario = $_POST['idcenario'];
@@ -81,14 +81,6 @@ while (($line = fgetcsv($f )) !== false && $lines <= 10 ) {
     //Criação das variaveis para efetuar o insert no banco
     $usuario =$id;
     $nomeId =$idCenario ;
-    $evento =$desCenario;
-    $nome = utf8_decode($lines[0]);
-    $sobrenome = utf8_decode($lines[1]);
-
-    //$sql ="INSERT INTO mapeamento (upload_arquivo_idarquivo,nomearquivo,telefone,estado) VALUES ('$usuario','$nomeId','$nome','$sobrenome')";
-    //return mysqli_query($conexao,$sql) or die(mysqli_error($conexao));
-
-  
     
     echo "<tr>";
     foreach ($line as $cell) {

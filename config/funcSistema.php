@@ -1,5 +1,5 @@
 <?php 
- 
+
 
 //Function que faz o cadastro do login do usuário//
     
@@ -61,9 +61,9 @@ function lerDadosUsuario($conexao,$idUsuario){
 //Function de Updade  dados so usuário 
 function atualizarDadosUsuario($conexao,$idUsuario,$nomeUsuario,$usuarioLogin,$senhaUsuario,$usuarioPerfil){
 
-    $novaSenha = md5($senhaUsuario);
+   // $novaSenha = md5($senhaUsuario);
 
-    $atualizarDados ="UPDATE usuario SET nome='$nomeUsuario',email='$usuarioLogin',senha='$novaSenha',perfil='$usuarioPerfil' where codusuario='$idUsuario' ";
+    $atualizarDados ="UPDATE usuario SET nome='$nomeUsuario',email='$usuarioLogin',senha='$senhaUsuario',perfil='$usuarioPerfil' where codusuario='$idUsuario' ";
     $queryUpdate = mysqli_query($conexao,$atualizarDados);
 
     $resultadoUpdate = $queryUpdate;
@@ -77,7 +77,7 @@ function atualizarDadosUsuario($conexao,$idUsuario,$nomeUsuario,$usuarioLogin,$s
 
 function removerLoginUsuario ($conexao,$idRemover){
 
-    $sqlDelete ="DELETE  FROM  usuario where idusuario ='$idRemover' LIMIT 1";
+    $sqlDelete ="DELETE  FROM  usuario where codusuario ='$idRemover' LIMIT 1";
 
     $exeRemover = mysqli_query($conexao,$sqlDelete);
     
@@ -109,11 +109,21 @@ function logarUsuario ($conexao,$login,$senha){
        $_SESSION ['id'] = $dados[0]['codusuario'];
        $_SESSION ['nomeuser'] = $dados[0]['nome'];
 
+       $perfilUsuario = $dados[0]['perfil'];
+
        $login = $dados[0]['codusuario'];
 
        $updateLogin = atualizaLogin($conexao,$login);
 
-   header('location:paineladm.php');
+      // return $updateLogin;
+
+      if($perfilUsuario == 'A'){
+        header('location:paineladm.php');
+      }else{
+
+       header('location:painelusuario.php');
+      }
+  
         
     }else{
 

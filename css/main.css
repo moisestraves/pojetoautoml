@@ -121,3 +121,10 @@ margin-left: 20px;
         width: 40%;
         background-color: rgb(73, 73, 104);;
       }
+
+      .menu{
+       font-size: 15px;
+        border-radius: 15px;
+        text-transform: uppercase;
+        
+      }

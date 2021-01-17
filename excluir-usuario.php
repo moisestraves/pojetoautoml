@@ -10,19 +10,19 @@ if(empty($_SESSION['id'])){
 
     
 
-    header('location:home.php');
+    header('location:index.php');
 
 }
 //Aqui Estou Recebendo o id para deletar o usuário
 
 $idUsuarioDeletar = $_GET['id'];
 
-//var_dump($idUsuarioDeletar);
+var_dump($idUsuarioDeletar);
 
 $usuarioDelete = removerLoginUsuario ($conexao,$idUsuarioDeletar);
 
 
-if($usuarioDelete == 1){
+if($usuarioDelete > 0){
 
 
     header('location:listar_usuarios.php');
