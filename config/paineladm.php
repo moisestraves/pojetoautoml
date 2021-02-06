@@ -2,25 +2,31 @@
 session_start();
 require 'cabecalho.php';
 
-//var_dump($_SESSION);
+if(empty($_SESSION['id']) ){
 
+    
+
+  header('location:../index.php');
+
+}
 ?>
-
 <div class="container">
 <div class="nav justify-content-end">
 <a class="nav justify-content-end " href="../sair.php"  > 
 <img src="../icones/logout-icon-18.png" width="8%" >
 </a> 
 </div>
-<!--<p >Código Usuário <?php/* echo $_SESSION['id']; */?></p>-->
-<h5 class="text-success text-capitalize">Olá, <?php echo $_SESSION['nomeuser']; ?> </h5>   </p>
+
+
 <div class="menu">
+<h5 class="text-success text-capitalize">Olá, <?php echo $_SESSION['nomeuser']; ?> </h5>   </p>
 <!-- Menu principal de navegação página administrador-->
-<nav class="nav nav-pills flex-column flex-sm-row">
-  <a class="flex-sm-fill text-sm-center nav-link text-dark" href="../cadastrar-usuario.php">Cadastrar Usuário</a>
-  <a class="flex-sm-fill text-sm-center nav-link text-dark" href="../listar_usuarios.php">Listar Usuários</a>
-  <a class="flex-sm-fill text-sm-center nav-link text-dark" href="../cenarios.php">Listar Cenários</a>
-  
+<h3 class="text-left">Painel Central do  Administardor  </h3>
+<nav class="nav justify-content-center ">
+
+  <a class="flex-sm-fill  nav-link text-dark" href="../cadastrar-usuario.php">Cadastrar Usuário</a>
+  <a class="flex-sm-fill  nav-link text-dark" href="../listar_usuarios.php">Listar Usuários</a>
+  <a class="flex-sm-fill  nav-link text-dark" href="../cenarios.php">Listar Cenários</a>
   
 </nav>
 </div>

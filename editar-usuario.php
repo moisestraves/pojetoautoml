@@ -14,12 +14,13 @@ if(empty($_SESSION['id'])){
 
 //Aqui foi Recebido o id pela url, do usuário selecionado pelo administrador para editar 
 
-$id_usuario = $_GET['id']; //Posso Alterar a Consulta do id para buscar pelo e-mail do usuário
+$id_usuario = $_GET['id']; //Código de identificação do usuário recebido pela Url
 
-//var_dump($id_usuario);
+
 
 
 //Chamada da função que  pesquisa os dados  conforme a ID selecionada
+
 $dadosUsuario = lerDadosUsuario($conexao,$id_usuario);
 
 //Variavel que esta quardando os dados do login
@@ -39,20 +40,14 @@ $resultadoUsuario = $dadosUsuario;
 </header>
 <body>
     <div class="container">
-    <div class="bot_nav">
-    <a href="home.php" class="btn btn-success btn-sm active text-uppercase" role="button" aria-pressed="true">Sair</a></td>
-    <a href="listar_usuarios.php" class="btn btn-danger btn-sm active text-uppercase" role="button" aria-pressed="true">Cancelar</a></td>
-    
-    
-    </div>
-    
+     
         <div class="login">
        
     <form  method="POST" action="config/update-usuario.php">
         <h5 class="text-center text-success">Dados do Usuário</h5><br>
       
     
-       <input type="hidden" name="id" value="<?php echo $resultadoUsuario ['codusuario'];?>">
+    <input type="hidden" name="id" value="<?php echo $resultadoUsuario ['codusuario'];?>">
     <label>Nome</label>
     <input type="text"  name="nome"  value="<?php echo $resultadoUsuario['nome'];?>">
     <label>Login</label>

@@ -1,5 +1,9 @@
 <?php
  session_start();
+
+
+    
+
      
 ?>
 <!DOCTYPE html>
@@ -28,14 +32,7 @@
 
     </form>
     <h5 class ="text-center text-danger">
-    <?php if(isset($_SESSION['loginErro']));
-
-        /*Aqui Foi inserido o erro Global*/
-     echo  $_SESSION['loginErro'];
-    unset ($_SESSION['loginErro']);
-
-   ?>
-    </h5>
+     <!-- Criar uma variavel  mensagem de erro de login e senha AQUI -->
         </div>
 </div>
 </body>

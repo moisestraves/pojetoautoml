@@ -31,13 +31,13 @@ if(empty($_SESSION['id']) ){
     
     <div class="container justify-content-end">
     <div class="nav justify-content-end">
-<a class="nav justify-content-end " href="../sair.php"  > 
+<a class="nav justify-content-end " href="sair.php"  > 
 <img src="./icones/logout-icon-18.png" width="8%" >
 </a>
 
 
 </div>
-<h5 class="text-success text-capitalize">Usuário (a)<br> <?php echo $_SESSION['nomeuser']; ?> </h5>   </p>
+<h5 class="text-danger text-capitalize">Usuário:<?php echo $_SESSION['nomeuser']; ?> </h5>   </p>
 </div>
         <div class="container">
         

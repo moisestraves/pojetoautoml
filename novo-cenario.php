@@ -4,21 +4,16 @@ session_start();
 require 'config/conexao.php';
 require 'config/funcSistema.php';
 
-
 if(empty($_SESSION['id'])){
 
-    
+
 
     header('location:index.php');
 
 }
 
 
-
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -29,7 +24,7 @@ if(empty($_SESSION['id'])){
     <title>Projeto AutoMl</title>
 </head>
 <header>
-<h2>Cenário</h2>
+<h1>Cenário</h1>
 </header>
 <body>
     <div class="container">
@@ -41,16 +36,16 @@ if(empty($_SESSION['id'])){
  <form  action="upload.php" method="post" enctype="multipart/form-data">
      <div>
      <label>ID CENÁRIO</label>
-     <input type="text" name="idcenario" placeholder="SalesProd" >
+     <input type="text" name="idcenario" placeholder="Ident/Cenário" >
      </div>
      <div>
      <label>DESCRIÇÃO</label>
-     <input type="text" name="descenario" placeholder="Sales Prediction">
+     <input type="text" name="descenario" placeholder="Desc/Cenário">
      </div>
 
      <div>
    
-    <input type="file" name ="arquivoUpload"placeholder="INSERIR ARQUIVO">
+    <input type="file" name ="arquivoUpload">
      </div>
      <br>
      

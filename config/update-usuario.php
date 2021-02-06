@@ -17,9 +17,9 @@ $perfilUsuario =$_POST['perfil'];
 //Chamada da função de Update dos dados do usuário
 $updateUsuario = atualizarDadosUsuario($conexao,$idUsuario,$nomeUsuario,$emailLogin,$senhaLogin,$perfilUsuario);
 
-if($updateUsuario == 1){
+if($updateUsuario > 0){
 
-echo'alert Dados Atualizado ';
+
 header('location:../listar_usuarios.php');
 
 }

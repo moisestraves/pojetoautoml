@@ -123,11 +123,11 @@ function logarUsuario ($conexao,$login,$senha){
 
        header('location:painelusuario.php');
       }
-  
+        echo $_SESSION['login'] = "Login não cadastrado";
         
     }else{
 
-        $_SESSION['loginErro'] = "Usuário ou Senha Invalido <br> Verifique os dados do usuário";
+       
 
         header('location:../index.php');
 

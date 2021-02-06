@@ -4,15 +4,6 @@ require 'config/conexao.php';
 require 'config/funcSistema.php';
 require 'config/cabecalho.php';
 
-
-
-if(empty($_SESSION['id'])){
-
-    
-
-    header('location:index.php');
-
-}
 //Aqui Estou Recebendo o id para deletar o usuário
 
 $idUsuarioDeletar = $_GET['id'];

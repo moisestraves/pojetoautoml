@@ -16,6 +16,8 @@ if(empty($_SESSION['id'])){
 
 $id = $_SESSION['id'];//Id do usuário que faz a solicitação
 
+
+
 //com o arquivo para apload
 $idCenario = $_POST['idcenario'];
 $desCenario= $_POST['descenario'];
@@ -77,10 +79,20 @@ $lines = 0;
 $f = fopen($target_file, 'r');
 echo "<table border = 1>";
 while (($line = fgetcsv($f )) !== false && $lines <= 10 ) {
- // var_dump($line);
+
+
+
     //Criação das variaveis para efetuar o insert no banco
-    $usuario =$id;
+    $usuario = $id;
     $nomeId =$idCenario ;
+    $doc = $imageFileType['name'];
+
+
+    $insert ="INSERT INTO cenario (usuario,identcenario,descupload) values ('$usuario','$nomeId','$doc')";
+
+          
+   return mysqli_query($conexao,$insert) or die(mysqli_error($conexao));
+    
     
     echo "<tr>";
     foreach ($line as $cell) {

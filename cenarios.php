@@ -6,17 +6,10 @@ require 'config/funcSistema.php';
 
 if(empty($_SESSION['id'])){
 
-    
-
-    header('location:index.php');
+    header('location:index.php');                                                                                                                                                  
 
 }
-
-
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -33,7 +26,6 @@ if(empty($_SESSION['id'])){
     <div class="container">
    
         <div class="login">
-
  <p >Cenários</p>
 <table class="table">
     <th>Previsão de Vendas</th>
