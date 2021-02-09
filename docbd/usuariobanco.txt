@@ -1,0 +1,6 @@
+Dados de conexão banco para executar o sistema
+
+$servidor="localhost";
+$usuario="conecta_automl";
+$senha="R7AMAflqzYioP1ld";
+$banco="bdautoml";
