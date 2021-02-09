@@ -23,13 +23,14 @@ require 'cabecalho.php';
 <h3 class="text-left">Central do Usuário  </h3>
 <ul class="nav flex-column">
 
+</li>
+  <li class="nav-item">
+  <a class="nav-link active text-dark " href="../cenarios.php">Cenários</a>
+  </li>
   <li class="nav-item">
   <a class="nav-link active text-dark " href="#">Configurações</a>
     
-  </li>
-  <li class="nav-item">
-  <a class="nav-link active text-dark " href="../cenarios.php">Listar Cenários</a>
-  </li>
+ 
   
   </li>
 </ul>

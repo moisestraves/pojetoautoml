@@ -21,10 +21,10 @@ if(empty($_SESSION['id']) ){
 <div class="menu">
 <h5 class="text-success text-capitalize">Olá, <?php echo $_SESSION['nomeuser']; ?> </h5>   </p>
 <!-- Menu principal de navegação página administrador-->
-<h3 class="text-left">Painel Central do  Administardor  </h3>
+<h3 class="text-left">Painel Central do  Administrador  </h3>
 <nav class="nav justify-content-center ">
 
-  <a class="flex-sm-fill  nav-link text-dark" href="../cadastrar-usuario.php">Cadastrar Usuário</a>
+  <a class="flex-sm-fill  nav-link text-dark" href="../cadastrar-usuario.php">Novo Usuário</a>
   <a class="flex-sm-fill  nav-link text-dark" href="../listar_usuarios.php">Listar Usuários</a>
   <a class="flex-sm-fill  nav-link text-dark" href="../cenarios.php">Listar Cenários</a>
   

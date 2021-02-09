@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+require 'erro-topo.php';
 require 'conexao.php';
 require 'funcSistema.php';
 
@@ -12,14 +13,15 @@ $senhaUsuario= $_POST['senha'];
 $usuarioPerfil =$_POST['perfil'];
 
 if(strlen($nomeUsuario) > 100){
-    echo"Tamanho do campo maior que o permitido";
-    
+    echo"<div class='alert alert-danger'role='alert '>Verifique Nome de Usuário</div>";
+    die;
 }if(strlen($emailLogin) > 100){
-    echo"<h1>Campo do E-mail  é maior que o permitido</h1>";
-
-/*}if(strlen($senhaUsuario) < 8){ // Verificar Logica Da Senha
-    echo" Tamanho da Senha Maior que o Permitido <br>";
-    echo"Tamanho maximo 8 caracteres";*/
+    echo"<div class='alert alert-danger'role='alert '>Campo do E-mail  é maior que o permitido</div>";
+    die;
+}if(strlen($senhaUsuario)  < 12) { // Verificar Logica Da Senha
+    echo"<div class='alert alert-danger'role='alert '> Verifique a Senha Informada ! </div> ";
+    echo"<div class='alert alert-danger'role='alert'>Tamanho maximo 8 caracteres </div>";
+    die;
     
 }else{
 
