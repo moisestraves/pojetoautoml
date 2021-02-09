@@ -20,6 +20,14 @@ margin-left: 20px;
      
    
  }
+
+ .login a{
+ text-decoration: none;
+
+
+  
+
+}
  
  /*AQUI É FEITO O ALINHAMENTO DO INPUT*/
  .login input{
@@ -101,10 +109,12 @@ margin-left: 20px;
      }
    .telacenarios input{
 
-    background-color: rgb(15, 75, 134);
-    color: rgb(248, 240, 240);
+    background-color: rgb(244, 246, 248);
+    color: black;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+    font-size: 15px;
+    width: auto;
+    height: auto;
    }
   
 

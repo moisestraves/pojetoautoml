@@ -29,18 +29,18 @@ if(empty($_SESSION['id'])){
  <p >Cenários</p>
 <table class="table">
     <th>Previsão de Vendas</th>
-    <td >Editar</td>
-    <td>Excluir</td>
+    <td ><a href="#">Editar</a></td>
+    <td><a href="#">Excluir</a></td>
     <tr></tr>
     <tr>
     <th>Previsão de clientes</th>
-    <td>Editar</td>
-    <td>Excluir</td>
+    <td><a href="#">Editar</a></td>
+    <td><a href="#">Excluir</a></td>
     <tr></tr>
     <tr>
     <th>Agrupamento de Clientes</th>
-    <td>Editar</td>
-    <td>Excluir</td>
+    <td><a href="#">Editar </a></td>
+    <td><a href="#">Excluir</a></td>
     <tr></tr>
 </table>
 <section>
