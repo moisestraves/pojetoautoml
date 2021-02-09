@@ -93,8 +93,9 @@ margin-left: 20px;
 
     .telacenarios form,div{
        display: block;
-       padding-left: 50px;
-       padding-top: 10px;
+       padding-top: auto;
+
+       margin: auto;
 
        
      }
